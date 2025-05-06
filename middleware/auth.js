@@ -4,19 +4,19 @@ require("dotenv").config();
 
 const Auth = (req, res, next) => {
     const authHeader = req.headers.authorization;
-    console.log("Authorization Header:", authHeader);
+
 
     if (authHeader ) {
         const token = authHeader.split(" ")[1];
-        console.log("Token:", token);
+  
 
         try {
             const decoded = jwt.verify(token, process.env.tokenSecretSign);
-            console.log("Decoded:", decoded);
+         
 
             if (decoded) {
                 req.userID = decoded.userID;
-                console.log("UserID:", req.userID);
+               
                 next();
             } else {
                 res.status(400).json({

@@ -1,6 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
+const userRouter = require('./routes/user');
+const activityRouter = require('./routes/activity');
+const bookingRouter = require('./routes/booking');
 
 dotenv.config();
 
@@ -15,9 +18,9 @@ app.get("/",(req,res)=>{
 })
 
 
-// app.use('/api/auth', require('./routes/authRoutes'));
-// app.use('/api/activities', require('./routes/activityRoutes'));
-// app.use('/api/bookings', require('./routes/bookingRoutes'));
+app.use('/user', userRouter);
+app.use('/activities', activityRouter);
+app.use('/bookings', bookingRouter);
 
 app.listen(PORT, async() => {
     try {
