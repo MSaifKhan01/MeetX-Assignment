@@ -14,6 +14,11 @@ app.get("/",(req,res)=>{
     res.status(200).send("Well Come to the MeetX Assignment Home Page")
 })
 
+
+// app.use('/api/auth', require('./routes/authRoutes'));
+// app.use('/api/activities', require('./routes/activityRoutes'));
+// app.use('/api/bookings', require('./routes/bookingRoutes'));
+
 app.listen(PORT, async() => {
     try {
         await connectDB
